@@ -1,0 +1,39 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+
+    <style name="Theme.Trial1" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#96FF6100</item>
+        <item name="colorPrimaryVariant">#96FF6100</item>
+        <item name="colorOnPrimary">#96FF6100</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#96FF6100</item>
+        <item name="colorSecondaryVariant">#96FF6100</item>
+        <item name="colorOnSecondary">#96FF6100</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">#96FF6100</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="welcome_ent">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="BaseAppTheme" parent="android:Theme.Material">
+        <!-- enable window content transitions -->
+        <item name="android:windowActivityTransitions">true</item>
+
+        <!-- specify enter and exit transitions -->
+        <item name="android:windowEnterTransition">@transition/explode</item>
+        <item name="android:windowExitTransition">@transition/explode</item>
+
+        <!-- specify shared element transitions -->
+        <item name="android:windowSharedElementEnterTransition">
+            @transition/change_image_transform</item>
+        <item name="android:windowSharedElementExitTransition">
+            @transition/change_image_transform</item>
+    </style>
+</resources>
