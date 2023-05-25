@@ -10,7 +10,7 @@
 <br/>
 <div align="center">
   <a href="https://github.com/siddhesh-desai/Janaganana">
-    <img src="images/Janaganana-logo.png" alt="Logo">
+    <img src="images/janaganana-logo.png" alt="Logo">
   </a>
     <br>
     <br>
