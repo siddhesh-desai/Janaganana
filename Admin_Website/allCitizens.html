@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Janगणना | All Citizens</title>
+    <link rel="stylesheet" href="project3.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+</head>
+
+<body>
+    <header class="header">
+        <a href="#" class="logo">
+            <i class="fas fa-shopping-basket" style="color: #000000"></i> Janगणना
+        </a>
+
+        <nav class="navbar">
+            <a href="aadhaarDatabase.html">Aadhaar Database</a>
+            <a href="allCitizens.html">Registered Citizens</a>
+            <a href="dataOverview.html">Data Overview</a>
+        </nav>
+    </header>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <p id="totalCounta">0</p>
+                    <h1 class="card-title" style="text-align: center">
+                        Total Population Count
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <p id="numfamilies" style="font-size: 75px; text-align: center"></p>
+                    <h1 class="card-title" style="text-align: center">
+                        Total Families Count
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br /><br />
+
+    <div class="container mt-5">
+        <h1 style="text-align: center; font-size: 40px; color: rgb(39, 101, 214)">
+            All Citizens
+        </h1>
+        <br />
+        <!-- <p id="totalCounta">Total Population: 0</p> -->
+        <br />
+        <table id="table" class="table table-striped">
+            <thead>
+                <th>Sno</th>
+                <th>Aadhaar No.</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Mobile</th>
+            </thead>
+        </table>
+    </div>
+    <!-- <ul id="list"></ul> -->
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+
+    <script id="MainScript">
+        var firebaseConfig = {
+            apiKey: "AIzaSyDncFSvtox_lkstydtiy63IKUCb6I07en8",
+            authDomain: "janganana-d0f6f.firebaseapp.com",
+            databaseURL:
+                "https://janganana-d0f6f-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "janganana-d0f6f",
+            storageBucket: "janganana-d0f6f.appspot.com",
+            messagingSenderId: "293470059066",
+            appId: "1:293470059066:web:d5ac9cee342699c7c9d303",
+            measurementId: "G-5D3H3XMECS",
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        var stdNo = 0;
+        var numfamilies = 0;
+
+        function addItemsToList(aadhar, fname, lname, mobile) {
+            var table = document.getElementById("table");
+            // var ul = document.getElementById('list');
+            // var header = document.createElement('h2');
+            var row = table.insertRow();
+            var cell = row.insertCell();
+
+            // var _aadhar = document.createElement('li');
+            // var _fname = document.createElement('li');
+            // var _lname = document.createElement('li');
+            // var _mobile = document.createElement('li');
+
+            // header.innerHTML = "Student - " + (++stdNo);
+
+            // _aadhar.innerHTML = "Aadhar: " + aadhar;
+            // _fname.innerHTML = "First Name: " + fname;
+            // _lname.innerHTML = "Last Name: " + lname;
+            // _mobile.innerHTML = "Mobile: " + mobile;
+
+            cell.innerHTML = ++stdNo;
+            cell = row.insertCell();
+            cell.innerHTML = aadhar;
+            cell = row.insertCell();
+            cell.innerHTML = fname;
+            cell = row.insertCell();
+            cell.innerHTML = lname;
+            cell = row.insertCell();
+            cell.innerHTML = mobile;
+        }
+
+        function FetchAllData() {
+            firebase
+                .database()
+                .ref("users")
+                .once("value", function (snapshot) {
+                    snapshot.forEach(function (ChildSnapshot) {
+                        ChildSnapshot.forEach(function (ChildSnapshot2) {
+                            ChildSnapshot2.forEach(function (ChildSnapshot3) {
+                                let aadhar = ChildSnapshot3.val().aadharnum;
+                                let fname = ChildSnapshot3.val().firstname;
+                                let lname = ChildSnapshot3.val().lastname;
+                                let mobile = ChildSnapshot3.val().mobile;
+                                let carnum = ChildSnapshot3.val().carnum;
+
+                                if (aadhar != undefined) {
+                                    addItemsToList(aadhar, fname, lname, mobile);
+                                }
+                                if (carnum != undefined) {
+                                    ++numfamilies;
+                                }
+                                document.getElementById("totalCounta").innerHTML = stdNo;
+                                document.getElementById("numfamilies").innerHTML =
+                                    numfamilies;
+                            });
+                        });
+                    });
+                });
+        }
+
+        window.onload(FetchAllData());
+    </script>
+</body>
+
+</html>

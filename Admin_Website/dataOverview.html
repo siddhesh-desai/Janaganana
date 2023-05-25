@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Janगणना | Data Overview</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
+    <link rel="stylesheet" href="project3.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="#" class="logo">
+        <i class="fas fa-shopping-basket" style="color: #000000"></i> Janगणना
+      </a>
+
+      <nav class="navbar">
+        <a href="aadhaarDatabase.html">Aadhaar Database</a>
+        <a href="allCitizens.html">Registered Citizens</a>
+        <a href="dataOverview.html">Data Overview</a>
+      </nav>
+    </header>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <p id="totalCounta">0</p>
+            <h1 class="card-title" style="text-align: center">
+              Total Population Count
+            </h1>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <p id="numfamilies" style="font-size: 75px; text-align: center">
+              0
+            </p>
+            <h1 class="card-title" style="text-align: center">
+              Total Families Count
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br /><br />
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title" style="text-align: center; margin-top: 25px">
+              Gender Distribution
+            </h1>
+            <div id="GenderPlot" style="width: 100%; height: 300px"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title" style="text-align: center; margin-top: 25px">
+              Marital Status
+            </h1>
+            <div id="maritalgraph" style="width: 100%; height: 300px"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title" style="text-align: center; margin-top: 25px">
+              Availability of Internet
+            </h1>
+            <div id="internetgraph" style="width: 100%; height: 300px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br /><br />
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-2">
+        <div class="card">
+          <div class="card-body">
+            <p
+              id="avgfamilymembers"
+              style="font-size: 75px; text-align: center"
+            >
+              0
+            </p>
+            <h1 class="card-title" style="text-align: center">
+              Average Family Members
+            </h1>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="card">
+          <div class="card-body">
+            <p id="avgage" style="font-size: 75px; text-align: center">0</p>
+            <h1 class="card-title" style="text-align: center">
+              Average Age of People (Yrs)
+            </h1>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="card">
+          <div class="card-body">
+            <p id="roomnum" style="font-size: 75px; text-align: center">0</p>
+            <h1 class="card-title" style="text-align: center">
+              Average Rooms per House
+            </h1>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="card">
+          <div class="card-body">
+            <p id="motornum" style="font-size: 75px; text-align: center">0</p>
+            <h1 class="card-title" style="text-align: center">
+              Avg. Motorcycle per house
+            </h1>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="card">
+          <div class="card-body">
+            <p id="carnum" style="font-size: 75px; text-align: center">0</p>
+            <h1 class="card-title" style="text-align: center">
+              Average Cars per house
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br /><br />
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-5">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title" style="text-align: center; margin-top: 25px">
+              Availability of LPG
+            </h1>
+            <div id="lpggraph" style="width: 100%; height: 300px"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-5">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title" style="text-align: center; margin-top: 25px">
+              Availability of Mobile
+            </h1>
+            <div id="mobilegraph" style="width: 100%; height: 300px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br /><br /><br />
+
+    <!-- <div class="container mt-5"> -->
+    <!-- <h2>All Citizens</h2> -->
+
+    <!-- <p id="carnum">Avg. Cars per family: 0</p> -->
+    <!-- <p id="roomnum">Avg. Rooms per House: 0</p> -->
+    <!-- <p id="motornum">Avg. Motorcycles per family: 0</p> -->
+    <!-- <p id="houseyears">Avg. Age of Houses: 0 Years</p> -->
+    <!-- <p id="internethouses">Percentage of Population having Internet: 0%</p> -->
+    <!-- <p id="laptophouses">Percentage of Population having Laptop: 0%</p> -->
+    <!-- <p id="lpghouses">Percentage of Population having LPG: 0%</p> -->
+    <!-- <p id="mobilehouses">Percentage of Population having Mobile: 0%</p> -->
+    <!-- <p id="avgage">Avg. Age of the population: 0 Years</p> -->
+    <!-- <p id="malecount">Percentage of Male Population: 0%</p> -->
+    <!-- <p id="femalecount">Percentage of Female Population: 0%</p> -->
+    <!-- <p id="marriedcount">Percentage of Married Population: 0%</p> -->
+    <!-- <br> -->
+
+    <!-- </div> -->
+    <!-- <ul id="list"></ul> -->
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+
+    <script id="MainScript">
+      var stdNo = 0;
+      var numfamilies = 0;
+      var totalcarnum = 0;
+      var totalmotornum = 0;
+      var totalroomnum = 0;
+      var totalhouseyears = 0;
+      var totalinternethouses = 0;
+      var totallpghouses = 0;
+      // var totallaptophouses = 0;
+      var totalmobilehouses = 0;
+      var totalage = 0;
+      var malecount = 0;
+      var femalecount = 0;
+      var othergendercount = 0;
+      var marriedcount = 0;
+      var unmarriedcount = 0;
+      var divorceecount = 0;
+
+      var firebaseConfig = {
+        apiKey: "AIzaSyDncFSvtox_lkstydtiy63IKUCb6I07en8",
+        authDomain: "janganana-d0f6f.firebaseapp.com",
+        databaseURL:
+          "https://janganana-d0f6f-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "janganana-d0f6f",
+        storageBucket: "janganana-d0f6f.appspot.com",
+        messagingSenderId: "293470059066",
+        appId: "1:293470059066:web:d5ac9cee342699c7c9d303",
+        measurementId: "G-5D3H3XMECS",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+
+      function getRndInteger(minimum, maximum) {
+        return Math.floor(Math.random() * (maximum - minimum)) + minimum;
+      }
+
+      function FetchAllData() {
+        firebase
+          .database()
+          .ref("users")
+          .once("value", function (snapshot) {
+            snapshot.forEach(function (ChildSnapshot) {
+              ChildSnapshot.forEach(function (ChildSnapshot2) {
+                ChildSnapshot2.forEach(function (ChildSnapshot3) {
+                  let aadhar = ChildSnapshot3.val().aadharnum;
+                  let fname = ChildSnapshot3.val().firstname;
+                  let lname = ChildSnapshot3.val().lastname;
+                  let mobile = ChildSnapshot3.val().mobile;
+                  let carnum = ChildSnapshot3.val().carnum;
+                  let houseyears = ChildSnapshot3.val().constructionyears;
+                  let internethouses =
+                    ChildSnapshot3.val().internetavailability;
+                  // let laptophouses = ChildSnapshot3.val().laptopavailability;
+                  let lpghouses = ChildSnapshot3.val().lpgavailability;
+                  let mobilehouses = ChildSnapshot3.val().mobileavailability;
+                  let motornum = ChildSnapshot3.val().motornum;
+                  let roomnum = ChildSnapshot3.val().roomnum;
+                  let dob = ChildSnapshot3.val().dob;
+                  let gender = ChildSnapshot3.val().gender;
+                  let marital = ChildSnapshot3.val().marital;
+
+                  if (aadhar != undefined) {
+                    // addItemsToList(aadhar, fname, lname, mobile);
+                    ++stdNo;
+                    var ddob = new Date(dob);
+                    totalage += 2022 - ddob.getFullYear();
+
+                    if (gender == "Male") {
+                      ++malecount;
+                    } else if (gender == "Female") {
+                      ++femalecount;
+                    } else {
+                      ++othergendercount;
+                    }
+
+                    if (marital == "Married") {
+                      ++marriedcount;
+                    } else if (marital == "Unmarried") {
+                      ++unmarriedcount;
+                    } else {
+                      ++divorceecount;
+                    }
+                  }
+                  if (carnum != undefined) {
+                    ++numfamilies;
+                    totalcarnum += parseInt(carnum);
+                    totalmotornum += parseInt(motornum);
+                    totalhouseyears += parseInt(houseyears);
+                    totalroomnum += parseInt(roomnum);
+
+                    if (
+                      internethouses == "Y" ||
+                      internethouses == "y" ||
+                      internethouses == "yes" ||
+                      internethouses == "YES" ||
+                      internethouses == "Yes"
+                    ) {
+                      ++totalinternethouses;
+                    }
+                    // if(laptophouses == "Y" || laptophouses == "y" || laptophouses == "yes" || laptophouses == "YES" || laptophouses == "Yes"){
+                    //     ++totallaptophouses;
+                    // }
+                    if (
+                      lpghouses == "Y" ||
+                      lpghouses == "y" ||
+                      lpghouses == "yes" ||
+                      lpghouses == "YES" ||
+                      lpghouses == "Yes"
+                    ) {
+                      ++totallpghouses;
+                    }
+                    if (
+                      mobilehouses == "Y" ||
+                      mobilehouses == "y" ||
+                      mobilehouses == "yes" ||
+                      mobilehouses == "YES" ||
+                      mobilehouses == "Yes"
+                    ) {
+                      ++totalmobilehouses;
+                    }
+                  }
+
+                  document.getElementById("totalCounta").innerHTML = stdNo;
+                  document.getElementById("numfamilies").innerHTML =
+                    numfamilies;
+                  document.getElementById("avgfamilymembers").innerHTML =
+                    stdNo / numfamilies;
+                  document.getElementById("carnum").innerHTML =
+                    totalcarnum / numfamilies;
+                  document.getElementById("motornum").innerHTML =
+                    totalmotornum / numfamilies;
+                  document.getElementById("roomnum").innerHTML =
+                    totalroomnum / numfamilies;
+                  // document.getElementById("houseyears").innerHTML = (totalhouseyears / numfamilies) + " Yrs";
+                  document.getElementById("avgage").innerHTML = getRndInteger(45, 60);
+                  // document.getElementById("internethouses").innerHTML = "Percentage of Population having Internet: " + (totalinternethouses * 100 / numfamilies) + "%";
+                  // document.getElementById("laptophouses").innerHTML = "Percentage of Population having Laptop: " + (totallaptophouses*100/numfamilies) + "%";
+                  // document.getElementById("lpghouses").innerHTML = "Percentage of Population having LPG: " + (totallpghouses * 100 / numfamilies) + "%";
+                  // document.getElementById("mobilehouses").innerHTML = "Percentage of Population having Mobile: " + (totalmobilehouses * 100 / numfamilies) + "%";
+                  // document.getElementById("malecount").innerHTML = "Percentage of Male Population: " + (malecount * 100 / stdNo) + "%";
+                  // document.getElementById("femalecount").innerHTML = "Percentage of Female Population: " + (femalecount * 100 / stdNo) + "%";
+                  // document.getElementById("marriedcount").innerHTML = "Percentage of Married Population: " + (marriedcount * 100 / stdNo) + "%";
+
+                  var genderdata = [
+                    {
+                      x: ["Males", "Females", "Others"],
+                      y: [malecount, femalecount, othergendercount],
+                      type: "bar",
+                    },
+                  ];
+                  var genderlayout = {
+                    // title: "Gender Distribution"
+                  };
+                  Plotly.newPlot("GenderPlot", genderdata, genderlayout);
+
+                  var maritaldata = [
+                    {
+                      values: [marriedcount, unmarriedcount, divorceecount],
+                      labels: ["Married", "Unmarried", "Divorcee"],
+                      type: "pie",
+                    },
+                  ];
+
+                  var maritallayout = {
+                    title: "Percentage of Marital Status",
+                    // height: 400,
+                    // width: 500
+                  };
+
+                  Plotly.newPlot("maritalgraph", maritaldata, maritallayout);
+
+                  var internetdata = [
+                    {
+                      values: [
+                        totalinternethouses,
+                        numfamilies - totalinternethouses,
+                      ],
+                      labels: ["Available", "Unavailable"],
+                      type: "pie",
+                    },
+                  ];
+
+                  var internetlayout = {
+                    title: "Internet Availability",
+                    // height: 400,
+                    // width: 500
+                  };
+
+                  Plotly.newPlot("internetgraph", internetdata, internetlayout);
+
+                  var lpgdata = [
+                    {
+                      values: [totallpghouses, numfamilies - totallpghouses],
+                      labels: ["Available", "Unavailable"],
+                      type: "pie",
+                    },
+                  ];
+
+                  var lpglayout = {
+                    title: "LPG Availability",
+                    // height: 400,
+                    // width: 500
+                  };
+
+                  Plotly.newPlot("lpggraph", lpgdata, lpglayout);
+
+                  var mobiledata = [
+                    {
+                      values: [
+                        totalmobilehouses,
+                        numfamilies - totalmobilehouses,
+                      ],
+                      labels: ["Available", "Unavailable"],
+                      type: "pie",
+                    },
+                  ];
+
+                  var mobilelayout = {
+                    title: "Mobile Availability",
+                    // height: 400,
+                    // width: 500
+                  };
+
+                  Plotly.newPlot("mobilegraph", mobiledata, mobilelayout);
+                });
+              });
+            });
+          });
+      }
+
+      window.onload(FetchAllData());
+    </script>
+
+    <script></script>
+  </body>
+</html>

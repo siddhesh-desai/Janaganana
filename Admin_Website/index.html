@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Census India</title>
+
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital@1&family=Sacramento&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="favicon-32x32.png">
+</head>
+<body>
+    <script language = "JavaScript">
+        function validate() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            if (username == "Formget" && password == "formget#123") {
+                window.open("aadhaarDatabase.html");
+                // window.location.replace("aadhaarDatabase.html");
+                // alert("Login successfully");
+                return true;
+            }
+            if (username == "group4" && password == "1234") {
+                window.open("aadhaarDatabase.html");
+                // window.location.replace("aadhaarDatabase.html");
+                // alert("Login successfully");
+                return true;
+            }
+            else{
+                alert("Enter valid Username Or Password")
+            }
+        }
+    </script>
+    <div id="into">
+        <img id="logo" src="logoimg.png">
+        <div class="center">
+            <h1 id="name">Janaगणना</h1>
+            <h3>Office of the Registrar General and Census Commissioner of India</h3>
+        </div>
+        <div class="right">
+            <input type="button" value="Contact Us">
+            <input type="button" value="About Us">
+
+        </div>
+    </div>
+    <div class="loginbox">
+        <img src="logoimg.png" class="avatar">
+        <h1 id="login">Login Here</h1><br>
+        <form id="form1">
+            <p>Username</p>
+            <input type="text" name="username" id="username" value="" placeholder="Enter Username" required>
+            <p>Password</p>
+            <input type="password" name="password" id="password" value="" placeholder="Enter Password" required><br>
+            <button id="submit" onclick="validate();">Login</button> <br>
+
+        </form>
+    </div>
+</body>
+
+</html>

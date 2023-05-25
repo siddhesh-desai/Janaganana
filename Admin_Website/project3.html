@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JanGanana | Admin</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="project3.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <header class="header">
+        <button type="button" class="btn btn-success">Back</button>
+        <a href="#" class="logo">
+            <i class="fas fa-shopping-basket"></i> CENSUS
+        </a>
+
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#features">Data & Resource</a>
+            <a href="#products">Link</a>
+            <a href="#categories">About Us</a>
+            <a href="#review">Act & Rules</a>
+            <a href="#blogs">Contact Us</a>
+        </nav>
+
+        <div class="icons">
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <div class="fas fa-search" id="search-btn"></div>
+            <div class="fas fa-user" id="login-btn"></div>
+        </div>
+
+        <form action="" class="search-form">
+            <input type="search" id="search-box" placeholder="search here..." />
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+
+        <form action="" class="login-form">
+            <h3>login now</h3>
+            <input type="email" placeholder="your email" class="box" />
+            <input type="password" placeholder="your password" class="box" />
+            <p>forget your password <a href="#">click here</a></p>
+            <p>don't have an account <a href="#">create now</a></p>
+            <input type="submit" value="login now" class="btn" />
+        </form>
+        <button type="button" class="btn btn-danger">Next</button>
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container mt-3">
+        <table class="table table-dark">
+            <thead>
+                <th>Sno</th>
+                <th>Name</th>
+                <th>Roll No</th>
+                <th>Section</th>
+                <th>Gender</th>
+            </thead>
+
+            <tbody id="tbody1"></tbody>
+
+            
+        </table>
+    </div>
+
+
+    <script src = "https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js" ></script>
+        <script src = "https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js" ></script>
+        <script src = "https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js" ></script>
+
+    <script type="module">
+        var stdNo = 0;
+        var tbody =  document.getElementById('tbody1');
+
+        function SelectAllData(){
+            firebase.database().ref('student').once('value',
+            function(AllRecords){
+                AllRecords.forEach(
+                    function(CurrentRecord){
+                        var name = CurrentRecord.val().aadhar;
+                        var roll = CurrentRecord.val().fname;
+                        var sec = CurrentRecord.val().lname;
+                        var gen = CurrentRecord.val().mobile;
+                        AddItemToTable(name,roll,sec,gen);
+                    }
+                );
+            });
+        }
+
+
+        function AddItemToTable(name,roll,sec,gen){
+            let trow = document.createElement("tr");
+            let td1 = document.createElement('td');
+            let td2 = document.createElement('td');
+            let td3 = document.createElement('td');
+            let td4 = document.createElement('td');
+            let td5 = document.createElement('td');
+
+            td1.innerHTML = ++stdNo;
+            td2.innerHTML = name;
+            td3.innerHTML = roll;
+            td4.innerHTML = sec;
+            td5.innerHTML = gen;
+
+            trow.appendChild(td1);
+            trow.appendChild(td2);
+            trow.appendChild(td3);
+            trow.appendChild(td4);
+            trow.appendChild(td5);
+
+            tbody.appendChild(trow);
+        }
+
+        function AddAllItemsToTable(TheStudent){
+            stdNo = 0;
+            tbody.innerHTML="";
+            TheStudent.forEach(element => {
+                AddItemToTable(element.NameofStd, element.RollNo, element.Section, element.Gender);
+            });
+        }
+        
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyDncFSvtox_lkstydtiy63IKUCb6I07en8",
+            authDomain: "janganana-d0f6f.firebaseapp.com",
+            databaseURL: "https://janganana-d0f6f-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "janganana-d0f6f",
+            storageBucket: "janganana-d0f6f.appspot.com",
+            messagingSenderId: "293470059066",
+            appId: "1:293470059066:web:d5ac9cee342699c7c9d303",
+            measurementId: "G-5D3H3XMECS"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        import { getDatabase, ref, child, onValue, get }
+        from "https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js";
+
+        const db = getDatabase();
+
+
+
+        function GetAllDataOnce(){
+            const dbRef = ref(db);
+
+            get(child(dbRef, "aadhardb/linkeddata/853441856335"))
+            .then((snapshot)=>{
+                var students = [];
+
+                snapshot.forEach(childSnapshot => {
+                    students.push(childSnapshot.val());
+                });
+
+                AddAllItemsToTable(students);
+            })
+
+        }
+
+        function GetAllDataRealtime(){
+            const dbRef = ref(db, "aadhardb/linkeddata/853441856335");
+
+            onValue(dbRef,(snapshot)=>{
+                var students = [];
+
+                snapshot.forEach(childSnapshot => {
+                    students.push(childSnapshot.val());
+                });
+
+                AddAllItemsToTable(students);
+            })
+
+            
+        }
+
+        window.onload = SelectAllData;
+
+    </script>
+
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <script src="project3.js"></script>
+</body>
+
+</html>

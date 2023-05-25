@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Janगणना | Aadhaar Database</title>
+    <link rel="stylesheet" href="project3.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="#" class="logo">
+        <i class="fas fa-shopping-basket" style="color: #000000"></i> Janगणना
+      </a>
+
+      <nav class="navbar">
+        <a href="aadhaarDatabase.html">Aadhaar Database</a>
+        <a href="allCitizens.html">Registered Citizens</a>
+        <a href="dataOverview.html">Data Overview</a>
+      </nav>
+    </header>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
+        <div class="card">
+          <div class="card-body">
+            <p id="totalCounta" style="font-size: 50px">0</p>
+            <h1 class="card-title" style="text-align: center"></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-5">
+      <!-- <p id="totalCounta" style="font-size:50px ;">Available Aadhaars: 0</p> -->
+      <br /><br />
+      <h1 style="text-align: center; font-size: 30px; color: rgb(39, 101, 214)">
+        Aadhaar Database
+      </h1>
+      <br />
+      <table id="table" class="table">
+        <thead>
+          <th>Sno</th>
+          <th>Aadhar</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Mobile</th>
+        </thead>
+      </table>
+    </div>
+
+    <!-- <ul id="list"></ul> -->
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+
+    <script id="MainScript">
+      var firebaseConfig = {
+        apiKey: "AIzaSyDncFSvtox_lkstydtiy63IKUCb6I07en8",
+        authDomain: "janganana-d0f6f.firebaseapp.com",
+        databaseURL:
+          "https://janganana-d0f6f-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "janganana-d0f6f",
+        storageBucket: "janganana-d0f6f.appspot.com",
+        messagingSenderId: "293470059066",
+        appId: "1:293470059066:web:d5ac9cee342699c7c9d303",
+        measurementId: "G-5D3H3XMECS",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+
+      var stdNo = 0;
+
+      function addItemsToList(aadhar, fname, lname, mobile) {
+        var table = document.getElementById("table");
+        // var header = document.createElement('h2');
+        var row = table.insertRow();
+        var cell = row.insertCell();
+
+        // var _aadhar = document.createElement('li');
+        // var _fname = document.createElement('li');
+        // var _lname = document.createElement('li');
+        // var _mobile = document.createElement('li');
+
+        // header.innerHTML = "Student - "+(++stdNo);
+        cell.innerHTML = ++stdNo;
+        cell = row.insertCell();
+        cell.innerHTML = aadhar;
+        cell = row.insertCell();
+        cell.innerHTML = fname;
+        cell = row.insertCell();
+        cell.innerHTML = lname;
+        cell = row.insertCell();
+        cell.innerHTML = mobile;
+      }
+
+      function FetchAllData() {
+        firebase
+          .database()
+          .ref("aadhardb/linkeddata")
+          .once("value", function (snapshot) {
+            snapshot.forEach(function (ChildSnapshot) {
+              let aadhar = ChildSnapshot.val().aadhar;
+              let fname = ChildSnapshot.val().fname;
+              let lname = ChildSnapshot.val().lname;
+              let mobile = ChildSnapshot.val().mobile;
+
+              addItemsToList(aadhar, fname, lname, mobile);
+              document.getElementById("totalCounta").innerHTML =
+                "Available Aadhaars: " + stdNo;
+            });
+          });
+      }
+
+      window.onload(FetchAllData());
+    </script>
+  </body>
+</html>

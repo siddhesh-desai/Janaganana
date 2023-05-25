@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="relation">
+        <item>Parent</item>
+        <item>Child</item>
+        <item>Grandparent</item>
+        <item>Great Grandparent</item>
+        <item>Spouse</item>
+        <item>Child in law</item>
+        <item>Sibling</item>
+        <item>No Blood Relation</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="marital">
+        <item>Married</item>
+        <item>Unmarried</item>
+        <item>Divorcee</item>
+    </string-array>
+</resources>

@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PersonaldetailsActivity">
+
+    <View
+        android:id="@+id/rectangle_2"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/home_top_rect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/ellipse_1"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/ic_account"
+        app:layout_constraintBottom_toBottomOf="@+id/rectangle_2"
+        app:layout_constraintEnd_toEndOf="@+id/rectangle_2"
+        app:layout_constraintTop_toTopOf="@+id/rectangle_2" />
+
+    <View
+        android:id="@+id/ellipse_"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="25dp"
+        android:background="@drawable/ic_back"
+        app:layout_constraintBottom_toBottomOf="@+id/rectangle_2"
+        app:layout_constraintStart_toStartOf="@+id/rectangle_2"
+        app:layout_constraintTop_toTopOf="@+id/rectangle_2"
+        app:layout_constraintVertical_bias="0.533" />
+
+    <TextView
+        android:id="@+id/person_deta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:fontFamily="@font/jost"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="PERSONAL DETAILS"
+        android:textColor="#00084B"
+        android:textSize="21dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/rectangle_2"
+        app:layout_constraintEnd_toStartOf="@+id/ellipse_1"
+        app:layout_constraintStart_toEndOf="@+id/ellipse_"
+        app:layout_constraintTop_toTopOf="@+id/rectangle_2" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="654dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rectangle_2"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/first_name_"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/itim"
+                android:gravity="top"
+                android:text="First Name:"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/first_name_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/itim"
+                android:gravity="top"
+                android:text="Middle Name:"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/firstname" />
+
+            <TextView
+                android:id="@+id/first_name_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/itim"
+                android:gravity="top"
+                android:text="Last Name:"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/firstname2" />
+
+            <TextView
+                android:id="@+id/first_name_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/itim"
+                android:gravity="top"
+                android:text="Gender:"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/firstname3" />
+
+            <TextView
+                android:id="@+id/first_name_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/itim"
+                android:gravity="top"
+                android:text="Caste:"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/spinnerGender"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerGender" />
+
+            <TextView
+                android:id="@+id/first_name_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/itim"
+                android:gravity="top"
+                android:text="Religion:"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/firstname4"
+                app:layout_constraintTop_toBottomOf="@+id/firstname4" />
+
+            <TextView
+                android:id="@+id/first_name_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/itim"
+                android:gravity="top"
+                android:text="Mobile Number:"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/firstname5"
+                app:layout_constraintTop_toBottomOf="@+id/firstname5" />
+
+            <TextView
+                android:id="@+id/first_name_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/itim"
+                android:gravity="top"
+                android:text="Relation with Siddhesh Desai:"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/firstname6"
+                app:layout_constraintTop_toBottomOf="@+id/firstname6" />
+
+            <TextView
+                android:id="@+id/first_name_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/itim"
+                android:gravity="top"
+                android:text="Marital Status:"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/spinnerRelation"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerRelation" />
+
+            <TextView
+                android:id="@+id/first_name_13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/itim"
+                android:gravity="top"
+                android:text="Date of Birth:"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/spinnerMarital"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerMarital" />
+
+            <TextView
+                android:id="@+id/first_name_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/itim"
+                android:gravity="top"
+                android:text="Aadhar Number:"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/dob"
+                app:layout_constraintTop_toBottomOf="@+id/dob" />
+
+            <EditText
+                android:id="@+id/firstname"
+                android:layout_width="315dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/aadhar_inpu"
+                android:fontFamily="@font/itim"
+                android:paddingLeft="15dp"
+                android:textAlignment="textStart"
+                android:textColor="#737373"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/first_name_"
+                app:layout_constraintTop_toBottomOf="@+id/first_name_" />
+
+            <EditText
+                android:id="@+id/firstname2"
+                android:layout_width="315dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/aadhar_inpu"
+                android:fontFamily="@font/itim"
+                android:paddingLeft="15dp"
+                android:textAlignment="textStart"
+                android:textColor="#737373"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/first_name_"
+                app:layout_constraintTop_toBottomOf="@+id/first_name_2" />
+
+            <EditText
+                android:id="@+id/firstname3"
+                android:layout_width="315dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/aadhar_inpu"
+                android:fontFamily="@font/itim"
+                android:paddingLeft="15dp"
+                android:textAlignment="textStart"
+                android:textColor="#737373"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/first_name_"
+                app:layout_constraintTop_toBottomOf="@+id/first_name_3" />
+
+            <EditText
+                android:id="@+id/firstname4"
+                android:layout_width="315dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/aadhar_inpu"
+                android:fontFamily="@font/itim"
+                android:paddingLeft="15dp"
+                android:textAlignment="textStart"
+                android:textColor="#737373"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/first_name_5"
+                app:layout_constraintTop_toBottomOf="@+id/first_name_5" />
+
+            <EditText
+                android:id="@+id/firstname5"
+                android:layout_width="315dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/aadhar_inpu"
+                android:fontFamily="@font/itim"
+                android:paddingLeft="15dp"
+                android:textAlignment="textStart"
+                android:textColor="#737373"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/first_name_6"
+                app:layout_constraintTop_toBottomOf="@+id/first_name_6" />
+
+            <EditText
+                android:id="@+id/firstname6"
+                android:layout_width="315dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/aadhar_inpu"
+                android:fontFamily="@font/itim"
+                android:paddingLeft="15dp"
+                android:inputType="number"
+                android:textAlignment="textStart"
+                android:textColor="#737373"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/first_name_7"
+                app:layout_constraintTop_toBottomOf="@+id/first_name_7" />
+
+            <EditText
+                android:id="@+id/dob"
+                android:layout_width="315dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/aadhar_inpu"
+                android:fontFamily="@font/itim"
+                android:paddingLeft="15dp"
+                android:hint="Select Date"
+                android:textAlignment="textStart"
+                android:textColor="#737373"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/first_name_13"
+                app:layout_constraintTop_toBottomOf="@+id/first_name_13" />
+
+            <EditText
+                android:id="@+id/dob2"
+                android:layout_width="315dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/aadhar_inpu"
+                android:fontFamily="@font/itim"
+                android:paddingLeft="15dp"
+                android:textAlignment="textStart"
+                android:textColor="#737373"
+                android:textSize="20sp"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="@+id/first_name_14"
+                app:layout_constraintTop_toBottomOf="@+id/first_name_14" />
+
+            <Spinner
+                android:id="@+id/spinnerGender"
+                android:layout_width="315dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/aadhar_inpu"
+                android:paddingLeft="15dp"
+                app:layout_constraintStart_toStartOf="@+id/first_name_4"
+                app:layout_constraintTop_toBottomOf="@+id/first_name_4" />
+
+            <Spinner
+                android:id="@+id/spinnerRelation"
+                android:layout_width="315dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/aadhar_inpu"
+                android:paddingLeft="15dp"
+                app:layout_constraintStart_toStartOf="@+id/first_name_8"
+                app:layout_constraintTop_toBottomOf="@+id/first_name_8"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Spinner
+                android:id="@+id/spinnerMarital"
+                android:layout_width="315dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/aadhar_inpu"
+                android:paddingLeft="15dp"
+                app:layout_constraintStart_toStartOf="@+id/first_name_12"
+                app:layout_constraintTop_toBottomOf="@+id/first_name_12" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/saveBtn1"
+                android:layout_width="315dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/btn2_bg"
+                android:fontFamily="@font/jost"
+                android:text="SAVE AND NEXT"
+                android:textColor="#FFFFFF"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/dob2"
+                app:layout_constraintTop_toBottomOf="@+id/dob2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
