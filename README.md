@@ -147,7 +147,7 @@ Project Link: [https://github.com/siddhesh-desai/Janaganana](https://github.com/
 Thanks go to these wonderful people:
 
 - [Siddhesh Desai](https://github.com/siddhesh-desai/)
-- Om Gore
+- [Om Gore](https://github.com/om9011/)
 - [Raj Dharmale](https://github.com/RajDharmale/)
 - Shravani Dhamne
 - Kaustubh Dharme
